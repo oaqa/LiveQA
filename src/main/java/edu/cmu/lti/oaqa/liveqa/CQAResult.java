@@ -1,7 +1,5 @@
 package edu.cmu.lti.oaqa.liveqa;
 
-import org.apache.lucene.search.TopDocs;
-
 import java.util.ArrayList;
 
 public class CQAResult implements Comparable<CQAResult> {
@@ -37,8 +35,6 @@ public class CQAResult implements Comparable<CQAResult> {
     }
 
     String url;
-
-    transient TopDocs topDocs;
 
     @Override
     public String toString() {
