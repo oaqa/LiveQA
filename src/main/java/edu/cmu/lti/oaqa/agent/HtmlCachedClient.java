@@ -12,10 +12,6 @@ import java.io.IOException;
  */
 public class HtmlCachedClient extends AbstractCachedFetcher<String> {
 
-    public HtmlCachedClient() {
-        super(new NoCache<>(HtmlCachedClient.class));
-    }
-
     public String fetchOnline(String url) {
         String html = "";
         try {

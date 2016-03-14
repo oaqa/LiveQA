@@ -35,6 +35,7 @@ public abstract class AbstractCachedFetcher<V> {
 
     static boolean RETRY_EMPTY = false;
 
+    static boolean FREEZE_MODE = false;
 
     public V fetch(String key) {
         V val = null;
@@ -50,7 +51,7 @@ public abstract class AbstractCachedFetcher<V> {
                 isEmpty = ((List) val).isEmpty();
             }
 
-            if (val == null || (RETRY_EMPTY && isEmpty)) {
+            if ((val == null || (RETRY_EMPTY && isEmpty)) && !FREEZE_MODE) {
                 val = fetchOnline(key);
                 if (RETRY_EMPTY && isEmpty){
                     cacheServer.del(key);

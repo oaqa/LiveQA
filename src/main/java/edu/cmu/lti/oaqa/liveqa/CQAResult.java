@@ -17,11 +17,15 @@ public class CQAResult implements Comparable<CQAResult> {
 
     public String qid;
 
+    public double qq_score;
+
+    public double dd_score;
+
     public double getScore() {
-        return score;
+        return qq_score + dd_score;
     }
 
-    public double score;
+//    public double score;
 
     public String getUrl() {
         if (url == null && qid != null) {
@@ -34,7 +38,7 @@ public class CQAResult implements Comparable<CQAResult> {
         this.url = url;
     }
 
-    String url;
+    public String url;
 
     @Override
     public String toString() {
@@ -42,7 +46,7 @@ public class CQAResult implements Comparable<CQAResult> {
                 "subject='" + subject + '\'' +
                 ", content='" + content + '\'' +
                 ", bestAnswer='" + (bestAnswer != null ? bestAnswer.substring(0, Math.min(1000, bestAnswer.length())) : "") + '\'' +
-                ", score=" + score +
+                ", score=" + getScore() +
                 ", url='" + url + '\'' +
                 '}';
     }
