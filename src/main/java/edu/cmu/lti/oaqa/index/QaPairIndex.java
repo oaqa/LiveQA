@@ -44,7 +44,7 @@ public class QaPairIndex {
     protected static final boolean USE_PROXIMITY_QUERY = false;
 
     //create index for YA corpus
-    //mvn exec:java -Dexec.mainClass=edu.cmu.lti.oaqa.liveqa.index.QaPairIndex /path/to/ya.xml /path/to/index_folder/
+    //mvn exec:java -Dexec.mainClass=edu.cmu.lti.oaqa.liveqa.index.QaPairIndex -Dexec.arguments='/path/to/ya.xml','/path/to/index_folder/'
     public static void main(String[] args) throws IOException, XMLStreamException {
         assert args.length == 2;
         String filePath = args[0];
